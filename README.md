@@ -67,6 +67,7 @@ Para que el sistema detecte los datos correctamente, debes usar el carácter de 
 # TEMA: Comparativa Regional 2024-2025
 # ---------------------------------------------------------
 import pandas as pd
+```
 # ... el resto de tu código ...
 
 ### B. Para LaTeX (.tex)
@@ -80,7 +81,7 @@ import pandas as pd
 \documentclass{article}
 \begin{document}
 % ... contenido ...
-
+```
 ---
 
 ### C. Nota sobre Markdown (.md)
@@ -99,6 +100,7 @@ Dirección de Estadística
 ::: {custom-style="FechaDocumento"}
 Enero 2025
 :::
+```
 ---
 ## Estilos esperados en la plantilla Word ##
 
