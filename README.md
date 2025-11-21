@@ -46,16 +46,21 @@ Para que el contenedor funcione correctamente, se debe respetar la siguiente est
 ```
 ---
 ## 4. Especificación de Metadatos (Encabezados)
-El orquestador analiza las primeras 20 líneas de tus archivos de código para extraer la información que llenará la Portada y la Hoja de Título.
-Para que el sistema detecte los datos correctamente, debes usar el carácter de comentario correspondiente a cada lenguaje seguido de la palabra clave (ej. TITULO:, AUTOR:).
 
-Palabras Clave Aceptadas
-**TITULO**: - El nombre principal del documento.
-**AUTOR**: - Nombre del responsable o Unidad Administrativa.
-**FECHA:** - Fecha de publicación o generación.
-**TEMA:** - Subtítulo o nombre específico del análisis (Hoja 2).
+El orquestador analiza las primeras 20 líneas de los archivos de código para extraer la información que llenará la Portada y la Hoja de Título.
 
-A. Para Python (.py) o R (.R)
+Para que el sistema detecte los datos correctamente, debes usar el carácter de comentario correspondiente a cada lenguaje seguido de la palabra clave (ej. `TITULO:`, `AUTOR:`).
+
+### Palabras Clave Aceptadas
+
+- **TITULO:** Nombre principal del documento.  
+- **AUTOR:** Nombre del responsable o Unidad Administrativa.  
+- **FECHA:** Fecha de publicación o generación.  
+- **TEMA:** Subtítulo o nombre específico del análisis (Hoja 2).  
+
+### A. Para Python (.py) o R (.R)
+
+```python
 # TITULO: Análisis de Ingresos Trimestrales
 # AUTOR: Dirección General de Estadísticas Económicas
 # FECHA: 21 de Enero 2025
@@ -64,7 +69,9 @@ A. Para Python (.py) o R (.R)
 import pandas as pd
 # ... el resto de tu código ...
 
-B. Para LaTeX (.tex)
+### B. Para LaTeX (.tex)
+
+```tex
 % TITULO: Modelo de Simulación Demográfica
 % AUTOR: Dr. René Rosendo
 % FECHA: Enero 2025
@@ -74,8 +81,13 @@ B. Para LaTeX (.tex)
 \begin{document}
 % ... contenido ...
 
-C. Nota sobre Markdown (.md)
-Si usas .md puro y quieres portada, debes incluir los estilos manualmente al inicio:
+---
+
+### C. Nota sobre Markdown (.md)
+
+Si usas `.md` puro y quieres portada, debes incluir los estilos manualmente al inicio:
+
+```markdown
 ::: {custom-style="TituloDocumento"}
 Mi Título
 :::
@@ -106,10 +118,10 @@ Las imágenes .png deben tener las dimensiones exactas del tamaño de hoja confi
 ---
 
 ## 6. Instalación y Construcción
-**Usando Podman**
+### Usando Podman
 podman build -t inegi-converter .
 
-**Usando Docker**
+### Usando Docker
 docker build -t inegi-converter .
 ---
 
