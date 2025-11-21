@@ -43,7 +43,7 @@ Para que el contenedor funcione correctamente, se debe respetar la siguiente est
 │   ├── header_texto.png   # Imagen: Contenido Impares (Hoja 3, 5, 7...)
 │   └── header_codigo.png  # Imagen: Contenido Pares (Hoja 4, 6, 8...)
 └── tmp/                   # [TEMP] Carpeta de archivos intermedios (autogenerada)
-
+```
 ---
 ## 4. Especificación de Metadatos (Encabezados)
 El orquestador analiza las primeras 20 líneas de tus archivos de código para extraer la información que llenará la Portada y la Hoja de Título.
