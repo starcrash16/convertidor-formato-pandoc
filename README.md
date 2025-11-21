@@ -68,7 +68,7 @@ Para que el sistema detecte los datos correctamente, debes usar el carácter de 
 # ---------------------------------------------------------
 import pandas as pd
 ```
-# ... el resto de tu código ...
+... el resto de tu código ...
 
 ### B. Para LaTeX (.tex)
 
@@ -117,6 +117,7 @@ Enero 2025
 Docker o Podman instalado en el sistema host.
 
 Las imágenes .png deben tener las dimensiones exactas del tamaño de hoja configurado en tpl_master.docx (ej. Carta o A4) para un ajuste perfecto.
+
 ---
 
 ## 6. Instalación y Construcción
