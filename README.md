@@ -33,7 +33,7 @@ Para que el contenedor funcione correctamente, se debe respetar la siguiente est
 ```text
 /mi_proyecto
 ├── Containerfile          # Definición de la imagen del contenedor
-├── orquestador.py         # Script principal (Lógica de negocio)
+├── orquestador.py         # Script principal 
 ├── entradas/              # [INPUT] Colocar aquí los archivos a procesar (.py, .tex, etc.)
 ├── archivos/              # [ASSETS] Recursos de configuración y diseño
 │   ├── tpl_master.docx    # Plantilla base de Word (Estilos, Fuentes)
@@ -43,3 +43,86 @@ Para que el contenedor funcione correctamente, se debe respetar la siguiente est
 │   ├── header_texto.png   # Imagen: Contenido Impares (Hoja 3, 5, 7...)
 │   └── header_codigo.png  # Imagen: Contenido Pares (Hoja 4, 6, 8...)
 └── tmp/                   # [TEMP] Carpeta de archivos intermedios (autogenerada)
+
+---
+## 4. Especificación de Metadatos (Encabezados)
+El orquestador analiza las primeras 20 líneas de tus archivos de código para extraer la información que llenará la Portada y la Hoja de Título.
+Para que el sistema detecte los datos correctamente, debes usar el carácter de comentario correspondiente a cada lenguaje seguido de la palabra clave (ej. TITULO:, AUTOR:).
+
+Palabras Clave Aceptadas
+**TITULO**: - El nombre principal del documento.
+**AUTOR**: - Nombre del responsable o Unidad Administrativa.
+**FECHA:** - Fecha de publicación o generación.
+**TEMA:** - Subtítulo o nombre específico del análisis (Hoja 2).
+
+A. Para Python (.py) o R (.R)
+# TITULO: Análisis de Ingresos Trimestrales
+# AUTOR: Dirección General de Estadísticas Económicas
+# FECHA: 21 de Enero 2025
+# TEMA: Comparativa Regional 2024-2025
+# ---------------------------------------------------------
+import pandas as pd
+# ... el resto de tu código ...
+
+B. Para LaTeX (.tex)
+% TITULO: Modelo de Simulación Demográfica
+% AUTOR: Dr. René Rosendo
+% FECHA: Enero 2025
+% TEMA: Algoritmos Estocásticos Avanzados
+
+\documentclass{article}
+\begin{document}
+% ... contenido ...
+
+C. Nota sobre Markdown (.md)
+Si usas .md puro y quieres portada, debes incluir los estilos manualmente al inicio:
+::: {custom-style="TituloDocumento"}
+Mi Título
+:::
+
+::: {custom-style="AutorUnidad"}
+Dirección de Estadística
+:::
+
+::: {custom-style="FechaDocumento"}
+Enero 2025
+:::
+---
+## Estilos esperados en la plantilla Word ##
+
+| Propósito            | Nombre del estilo   |
+| -------------------- | ------------------- |
+| Nombre del Documento | **TituloDocumento** |
+| Autor y UA           | **AutorUnidad**     |
+| Fecha                | **FechaDocumento**  |
+| Título del Tema      | **TituloTema**      |
+| Texto normal o Código| **TextoContenido**  |
+
+---
+## 5. Requisitos Previos
+Docker o Podman instalado en el sistema host.
+
+Las imágenes .png deben tener las dimensiones exactas del tamaño de hoja configurado en tpl_master.docx (ej. Carta o A4) para un ajuste perfecto.
+---
+
+## 6. Instalación y Construcción
+**Usando Podman**
+podman build -t inegi-converter .
+
+**Usando Docker**
+docker build -t inegi-converter .
+---
+
+## 7. Uso (Ejecución)
+Para ejecutar el orquestador, monta el directorio actual al volumen /data del contenedor. Los reportes generados aparecerán en la raíz de la carpeta montada.
+**En Linux / macOS:**
+podman run --rm -v $(pwd):/data:Z inegi-converter
+
+**En Windows (PowerShell):**
+podman run --rm -v ${PWD}:/data:Z inegi-converter
+---
+
+
+
+
+
