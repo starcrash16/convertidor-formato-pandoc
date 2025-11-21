@@ -18,8 +18,8 @@ El orquestador utiliza un enfoque híbrido:
 
 ## 2. Características Principales
 
-* 🚀 **Procesamiento por Lotes (Batch):** Detecta y procesa automáticamente múltiples archivos de entrada simultáneamente.
-* 📄 **Soporte Multi-formato:**
+*  **Procesamiento por Lotes (Batch):** Detecta y procesa automáticamente múltiples archivos de entrada simultáneamente.
+*  **Soporte Multi-formato:**
     * **Python (.py) & R (.R):** Extrae metadatos y formatea el código con resaltado de sintaxis.
     * **Jupyter Notebooks (.ipynb):** Renderiza celdas de código y markdown.
     * **LaTeX (.tex):** Convierte ecuaciones complejas a formato nativo de Word.
