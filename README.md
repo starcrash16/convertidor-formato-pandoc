@@ -126,6 +126,7 @@ podman build -t inegi-converter .
 
 ### Usando Docker
 docker build -t inegi-converter .
+
 ---
 
 ## 7. Uso (Ejecución)
@@ -135,6 +136,7 @@ podman run --rm -v $(pwd):/data:Z inegi-converter
 
 **En Windows (PowerShell):**
 podman run --rm -v ${PWD}:/data:Z inegi-converter
+
 ---
 
 
