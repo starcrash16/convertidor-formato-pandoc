@@ -74,7 +74,7 @@ import pandas as pd
 
 ```tex
 % TITULO: Modelo de Simulación Demográfica
-% AUTOR: Dr. René Rosendo
+% AUTOR: René Rosendo
 % FECHA: Enero 2025
 % TEMA: Algoritmos Estocásticos Avanzados
 
